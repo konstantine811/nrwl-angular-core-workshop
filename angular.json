@@ -86,7 +86,10 @@
               "apps/dashboard/tsconfig.app.json",
               "apps/dashboard/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/dashboard/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/dashboard/**"
+            ]
           }
         },
         "test": {
@@ -121,8 +124,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/dashboard-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/dashboard-e2e/**"]
+            "tsConfig": [
+              "apps/dashboard-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/dashboard-e2e/**"
+            ]
           }
         }
       }
@@ -140,7 +148,10 @@
               "libs/material/tsconfig.lib.json",
               "libs/material/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/material/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/material/**"
+            ]
           }
         },
         "test": {
@@ -172,7 +183,10 @@
               "libs/core-data/tsconfig.lib.json",
               "libs/core-data/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/core-data/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/core-data/**"
+            ]
           }
         },
         "test": {
@@ -204,7 +218,10 @@
               "libs/ui-login/tsconfig.lib.json",
               "libs/ui-login/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-login/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-login/**"
+            ]
           }
         },
         "test": {
@@ -236,7 +253,10 @@
               "libs/ui-toolbar/tsconfig.lib.json",
               "libs/ui-toolbar/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui-toolbar/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui-toolbar/**"
+            ]
           }
         },
         "test": {
@@ -257,7 +277,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "17da0ebb-4526-43e3-ae76-04e259679c38"
   },
   "schematics": {
     "@nrwl/angular:application": {
