@@ -3,14 +3,19 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '@workshop/ui-login';
 
 const routes: Routes = [
-  { path: '', loadChildren: './home/home.module#HomeModule' },
+  {
+    path: '',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+  },
   {
     path: 'projects',
-    loadChildren: './projects/projects.module#ProjectsModule'
+    loadChildren: () =>
+      import('./projects/projects.module').then(m => m.ProjectsModule)
   },
   {
     path: 'customers',
-    loadChildren: './customers/customers.module#CustomersModule'
+    loadChildren: () =>
+      import('./customers/customers.module').then(m => m.CustomersModule)
   },
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
