@@ -8,12 +8,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
+import { Project } from '@workshop/core-data';
+import { By } from '@angular/platform-browser';
 
 describe('ProjectsComponent', () => {
   // Create my local test members
   let component: ProjectsComponent;
   let fixture: ComponentFixture<ProjectsComponent>;
   let de: DebugElement;
+  const emptyProject: Project = {
+    id: null,
+    title: '',
+    details: '',
+    percentComplete: 0,
+    approved: false
+  };
 
   // Instantiate test bed
   beforeEach(async(() => {
@@ -29,14 +38,34 @@ describe('ProjectsComponent', () => {
         HttpClientModule,
         BrowserAnimationsModule
       ]
-    }).createComponent(ProjectsComponent);
+    }).createComponent(ProjectsComponent); // Instantiate the fixture
 
+    // Get THE component instance
     component = fixture.componentInstance;
+    // Get the debug element aka the element the component lives on
     de = fixture.debugElement;
+    // Manually force change detection
     fixture.detectChanges();
   }));
 
   it('should have a primaryColor of `red`', () => {
     expect(component.primaryColor).toBe('red');
+  });
+
+  it('should select a project', () => {
+    component.selectProject(emptyProject);
+    expect(component.selectedProject).toBe(emptyProject);
+  });
+
+  it('should display primaryColor', () => {
+    const h1 = de.query(By.css('h1'));
+    expect(h1.nativeElement.textContent).toBe('red');
+  });
+
+  it('should update h1 to new primaryColor', () => {
+    const h1 = de.query(By.css('h1'));
+    component.primaryColor = 'black';
+    fixture.detectChanges();
+    expect(h1.nativeElement.textContent).toBe('black');
   });
 });
